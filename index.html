@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSocieyCoin</title>
+    <link rel="icon" href="images/lajhar.webp" type="image/png">
+    <style>
+        @font-face {
+      font-family: "MatrixFont-NEM_JO";
+      src: url("fonts/GlitchGoblin.ttf") format("truetype"),
+        url("fonts/GlitchGoblin.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+    font-family: "MatrixFont";
+    src: url("fonts/NineteenNinetySeven-11XB.ttf") format("truetype");
+}
+    @font-face {
+    font-family: "vonalkod";
+    src: url("fonts/BarCode39Lesbar-3yDM.ttf") format("truetype");
+}
+    @font-face {
+    font-family: "MatrixFont_2";
+    src: url("fonts/Code7X5Regular-ypBe.ttf") format("truetype");  
+}
+
+
+@font-face {
+    font-family: "teszt11";
+    src: url("fonts/3X5-6OYA.ttf") format("truetype");
+}
+@font-face {
+    font-family: "teszt22";
+    src: url("fonts/SdglitchdemoRegular-YzROj.ttf") format("truetype");
+}
+
+
+
+@keyframes glitch {
+  0% { text-shadow: 1px 0 red, -1px 0 blue, 0 1px green, 0 -1px yellow; }
+  50% { text-shadow: 1px 1px red, -1px -1px blue, 0 1px green, 0 -1px yellow; }
+  100% { text-shadow: 1px 0 red, -1px 0 blue, 0 1px green, 0 -1px yellow; }
+}
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100%; /* A teljes magasság kihasználása */
+            overflow-y: scroll; /* Görgethetőség engedélyezése */
+            
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/arc.gif') no-repeat center center/cover;
+            filter: blur(6px) grayscale(100%); /* Homályosítás mértéke, grayscale = SZÍNEZÉS */
+            z-index: -1; /* A háttér mögött marad */
+        }
+
+        .section p {
+            max-width: 1100px; /* Állítsd be a kívánt szélességet */
+            font-size: 30px;
+            gap: 10;
+        }
+
+        #section1 {
+            position: absolute;
+            top: 300px; /* lefelé tolja az elemet */
+            left: 40px; /* bal szélhez igazítás */
+            width: 60%; /* teljes szélesség */
+            white-space: normal; /* Engedélyezi a tördelést */
+            letter-spacing: 0px;
+            line-height: 1.6; /* Tördelés kényelmesebb lesz */
+            word-wrap: break-word; /* Szavak törése, ha szükséges */
+            word-break: break-word; /* Kényszeríti a szó törését, ha túl hosszú */
+           /* color: #1e5e18;*/
+           color: grey;
+            /*font-weight: 10 !important;*/
+            font-family: "MatrixFont";
+            font-size: 25px;
+            
+
+
+}
+#section2 {
+            position: absolute;
+            top: 800px; /* lefelé tolja az elemet */
+            left: 0; /* bal szélhez igazítás */
+            width: 50%; /* teljes szélesség */
+            font-family: 'MatrixFont_2';
+            font-size: 17px; /*The shadow of F$OCIETY*/
+}
+#section22 p {
+            position: absolute;
+            width: 100%; /* teljes szélesség */
+            font-family: 'MatrixFont_2';    
+            font-size: 20px !important;
+            margin-bottom: 20px; /* Térköz a bekezdések között */
+            line-height: 1.6;    
+            margin: 0;
+}
+#section2 p {
+    margin: 0;             /* Reset a bekezdés alapértelmezett margóit */
+    margin-bottom: 30px;   /* Adj hozzá egy alsó térközt */
+    line-height: 1.6;      /* Sorok közötti térköz */
+    display: block; 
+    font-size: 17px;       /*Ez a második oldal szövege*/
+}
+
+#section3 {
+            position: absolute;
+            top: 1500px; /* lefelé tolja az elemet */
+            left: 0; /* bal szélhez igazítás */
+            width: 100%; /* teljes szélesség */
+            text-align: center;
+            font-family: 'MatrixFont_2';
+}
+
+#section4 {
+            position: absolute;
+            top: 2100px; /* lefelé tolja az elemet */
+            left: 0; /* bal szélhez igazítás */
+            width: 100%; /* teljes szélesség */
+
+        }
+
+.glitch-text {
+  font-family: 'Courier New', monospace;
+  font-size: 50px;
+  color: white;
+  animation: glitch 1s infinite;
+  position: relative;
+}
+ 
+        /* GIF-container stílusa */
+        .gif-container {
+            position: absolute; /* Abszolút pozíció a body-hoz képest */
+            top: 20px;          /* Kis távolság a tetejétől */
+            right: 30px;        /* Kis távolság a jobb oldaltól */
+            width: 60px;       /* A GIF mérete */
+            cursor: pointer;
+        }
+
+        /* GIF megjelenítése */
+        .gif {
+            width: 100%;
+            border-radius: 10px; /* Enyhe kerekítés */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            position: absolute; /* A tartalom pozicionálása a képernyő közepére */
+            top: 20%; /* Függőlegesen középre helyezés */
+            left: 50%; /* Horizontálisan középre helyezés */
+            transform: translate(-50%, -50%); /* A közepére hozza pontosan */
+            text-align: center; /* Szöveg középre igazítása */
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 10px black;
+        }
+
+   /* Social gomb a popup megnyitásához */
+   .social-links {
+            position: absolute;
+            top: 35px; /* Jobb felső sarok */
+            left: -100px;
+            display: none; /* Alapértelmezés szerint rejtett */
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border-radius: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-decoration: none; /* link alapértelmezett aláhúzás eltüntetése */
+        }
+
+        .social-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+
+}
+
+        .social-icon img {
+            width: 70%; /* Ikon mérete */
+            height: 70%;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .gif-container:hover .social-links {
+            display: flex; /* Mutassa az ikonokat, ha fölé viszed az egeret */
+        }
+        span {
+    font-size: 14px;
+    color: white; /* Szöveg színe */
+    font-weight: 500;
+}
+
+        p {
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px black;
+        }
+
+        .subtitle {
+            font-size: 4rem;
+            font-family: 'teszt11', sans-serif;
+            color: #00ff00;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        h3.subtitle {
+            font-size: 1.5rem;
+            color: #ddd;
+            text-align: left;
+            font-style: italic;
+        }
+
+         /* Szakaszok */
+    .section {
+      padding: 80px 20px;
+      margin: 20px 0;
+      background: #f4f4f4;
+      border-radius: 8px;
+      min-height: 100vh; /* Minden szakasz legalább egy képernyőnyi magas */
+    }
+
+    #section1 {
+      background: transparent;
+    }
+
+    #section2 {
+      background: transparent;
+    }
+
+    #section3 {
+      background: transparent;
+    }
+    #section4 {
+      background: transparent;
+    }
+
+/*---------------------------------------Tiktok és twitter------------------------------------*/
+
+.embed-container {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: flex-start;  /* Aligns the items to the top */
+    position: absolute;          /* Keeps them at a fixed position */
+    top: 2250px;              /* Positions it at the top of the page */
+    width: 100%;              /* Makes the container span the full width of the page */
+    padding: 20px;
+    box-sizing: border-box;
+               /* Keeps it on top of other content */
+}
+
+.embed-item {
+    width: 45%; 
+            max-width: 400px;
+            min-width: 300px;
+            border: 1px solid #00ff00; /* Neon zöld keret */
+            padding: 10px;
+            margin: 0 20px;
+            box-shadow: 0 0 15px #00ff00; /* Zöld fényhatás */
+            background-color: #001a00; /* Sötét zöld háttér */
+            border-radius: 15px; /* Kerekített sarkok */
+            overflow: hidden;
+}
+
+/*---------------------------------------Egyedi kép 2 oldal------------------------------------*/
+
+
+
+.custom-image {
+    position: absolute;
+    right: 200px;
+    top: 925px;
+    width: 430px;
+    height: auto;
+    border-radius: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-image:hover {
+    transform: scale(1.1); /* Kép nagyítása */
+    opacity: 0.8; /* Kép átlátszóságának csökkentése */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Árnyék hozzáadása */
+}
+
+.custom-image2 {
+    position: absolute;
+    left: 100px;
+    top: 2000px;
+    width: 520px;
+    height: auto;
+    border-radius: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*---------------------------------------Szürke csík social media-----------------------------*/
+
+/* Biztosítjuk, hogy a body és html elemeknek nincs margója */
+html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+/* Eredeti CSS */
+/* Hover esetén világosabb színre vált */
+.footer a:hover span {
+    transform: translateY(-3px); /* Finom mozgás */
+    color: #00ff00; /* Világosabb zöld szín */ 
+}
+
+/* Eredeti CSS */
+.footer {
+    background-color: #001a00; /* Sötét zöld háttér */
+    position: absolute;
+    bottom: -2300px;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-top: 2px solid #00ff00; /* Zöld felső határvonal */
+    box-shadow: 0 -5px 10px rgba(0, 255, 0, 0.5); /* Zöld fényhatás */
+    font-family: 'Courier New', Courier, monospace; /* Monospace betűtípus */
+    color: #00ff00; /* Neon zöld szöveg */
+    font-family: 'MatrixFont';
+}
+
+.footer a {
+    margin: 0 50px;
+    color: #00ff00; /* Neon zöld ikonok */
+    font-size: 30px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer a:hover {
+    transform: scale(1.2); /* Ikonok nagyítása hover esetén */
+}
+
+.footer-text {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #00ff00; /* Zöld szöveg */
+}
+
+/* Szövegmozgás effekt a linkekre */
+.footer a span {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease; /* Szín és mozgás átlépési effekt */
+}
+
+
+
+/*---------------------------------------Logok beállítása-------------------------------------*/
+
+        /* Lépések konténere */
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 1700px; /* Lépések lejjebb tolása */
+            pointer-events: auto;
+        }
+
+        /* Egyes lépés dobozok */
+        .step {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 10; /*Step 1,2,3 láthatósága*/
+            /*font-family: 'MatrixFont';*/
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Lépés címei */
+        .step h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f3f3f3;
+        }
+
+        /* Lépés szöveg */
+        .step p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Ikonok stílus */
+        .step img {
+            width: 50px;
+            margin: 10px auto;
+        }
+
+        /* Több logó esetén */
+        .logos {
+            display: flex; /* Flexbox használata */
+            justify-content: center; /* Középre igazítás vízszintesen */
+            align-items: center; /* Középre igazítás függőlegesen */
+            gap: 0 !important; /* Térköz a logók között */
+            flex-wrap: nowrap; /* Biztosan egy sorban tartja a logókat */
+        }
+
+        /* Szülő konténer, hogy teljes szélességet kapjon */
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logók konténere */
+        .logos {
+            display: flex; /* Flexbox */
+            justify-content: center; /* Középre igazítás vízszintesen */
+            align-items: center; /* Függőleges középre igazítás */
+            gap: 20px; /* Logók közötti térköz */
+            flex-wrap: nowrap; /* Egy sorban maradnak */
+            margin-top: 50px;
+        }
+
+        /* Logók mérete */
+        .logos img {
+            width: auto;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        /*Egyedi ikonok*/
+        .icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .raydium-icon {
+            width: 69px !important; /* Állítsa be a kívánt méretet */
+            height: 69px !important;
+            margin-left: 60px !important;
+        }
+
+        .jupiter-icon{
+            margin-right: 60px !important;
+        }
+
+        .phantom-icon {
+            margin-top: 20px !important; /* Állítsa be az értéket, amíg megfelelő nem lesz */
+        }
+
+        .solana-icon {
+            margin-top: 38px !important; /* Állítsa be az értéket az egységes megjelenéshez */
+        }
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+/* FSOCIETY SZÖVEGE */
+div.szoveg p {
+            font-size: 2.5rem  !important; /* Csökkentettük a betűméretet */
+            line-height: 1.5;
+            color: #999;
+            position: absolute;
+            left: 50px; 
+            top: 480px;
+            font-family: 'vonalkod'; /* Fallback betűtípusok */
+        }
+
+
+
+    </style>
+</body>
+</head>
+<main>
+    <div class="szoveg">
+        <p>F$OCIETY</p>
+    </div>
+
+    <div class="container">
+        <img src="images/plusz_kep.jpg" alt="Egyedi kép" class="custom-image">
+    </div>
+
+    <div class="container">
+        <img src="images/robot.png"alt="Egyedi kép" class="custom-image2">
+    </div>
+
+    <section id="section1" class="section">
+        <p></p>
+      </section>
+
+    <section id="section2" class="section">
+      <h2>The Shadow of F$ociety    </h2>
+      <p>An unknown hacker created a meme token called F$ociety, proclaiming it as the new global currency of freedom. On darknet forums, they left cryptic messages: "No central authority, only freedom. F$ociety is the new order."</p>
+
+      <p>Three investigators – ..., and .. – began following the trail. ...., a tech genius, discovered a hidden algorithm in the token's code that controlled a decentralized system. .... uncovered that the hacker was secretly disrupting corporate transactions to promote F$ociety. ..., an old-school detective, found a message on the darknet: "If you don’t understand, step aside. Fociety is inevitable."</p>
+  
+      <p>The token spread rapidly, but the hacker’s identity remained a mystery. The world watched as chaos loomed and a new order began to emerge.</p>
+
+    </section>
+
+    <section id="section3" class="section">
+      <h2>How to buy</h2>
+      <p></p>
+    </section>
+  </main>
+
+  <section id="section4" class="section">
+    <h2></h2>
+    <p></p>
+  </section>
+
+
+<div id="section1">
+    <div id="matrixText" class="matrix-text"></div>
+</div>
+
+<script>
+    const text = "Cyber money that will soar not only in imagination but also in reality. We and you will be the ones with whom we can reach the top without stopping. Invest today or miss the opportunity that will take you to the top. You and only you decide.";
+    let index = 0;
+    const matrixTextElement = document.getElementById('matrixText');
+
+    function typeText() {
+        if (index < text.length) {
+            matrixTextElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeText, Math.random() * 10 + 10);  // Kiírás gyorsasága
+        }
+    }
+
+    window.onload = () => {
+        typeText();
+    };
+</script>
+
+  
+    <!-- Háttér GIF -->
+    <div class="background"></div>
+
+
+    <!-- Social ablak -->
+    <div class="gif-container">
+        <!-- Social Media cím -->
+        <div class="social-title"></div>
+        <!---->
+        <img src="images/robot_icon.gif" alt="Clickable GIF" class="gif">
+        <div class="social-links">
+            <!-- Social media linkek -->
+            <div class="social-item">
+                <a href="https://x.com/Fsocietycoin_" target="_blank" class="social-icon">
+                    <img src="images/X.png" alt="X Icon">
+                </a>
+                <span>Twitter</span>
+            </div>
+            <div class="social-item">
+                <a href="https://t.me/+ZoMekRUJtBtiOWE0" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon"> 
+                </a>
+                <span>Telegram</span>
+            </div>
+            <div class="social-item">
+                <a href="https://dexscreener.com" target="_blank" class="social-icon">
+                    <img src="images/Dexscreener.png" alt="Dexscreener Icon"> 
+                </a>
+                <span>Dexscreener</span>
+            </div>
+            <div class="social-item">
+                <a href="https://www.tiktok.com/@fsocietycoin?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon">
+                    <img src="images/tiktok_icon.png" alt="TikTok Icon"> 
+                </a>
+                <span>TikTok</span>
+            </div>
+            <div class="social-item">
+                <a href="https://pumpfun.com" target="_blank" class="social-icon">
+                    <img src="images/PumpFun-ezgif,com-resize_processed.png" alt="Pumpfun Icon"> 
+                </a>
+                <span>PumpFun</span>
+            </div>            
+        </div>
+    </div>
+    
+    </div>
+<!------------------------------------------------------->
+<!-- Tiktok és twitter -->
+
+<div class="embed-container">
+    <!-- TikTok beágyazási kód -->
+    <div class="embed-item">
+        <blockquote class="tiktok-embed" cite="<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@fsocietycoin/video/7397533666173357344" data-video-id="7397533666173357344" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@fsocietycoin" href="https://www.tiktok.com/@fsocietycoin?refer=embed">@fsocietycoin</a> The coin that won&#39;t hit the moon but the banks. More coming soon----&gt; Follow and like this Page. X: https:&#47;&#47;x.com&#47;Fsocietycoin_?t=tt-ElOnt6x409pc7nNs_qQ&#38;s=09 <a title="crypto" target="_blank" href="https://www.tiktok.com/tag/crypto?refer=embed">#crypto</a> <a title="cryptocoin" target="_blank" href="https://www.tiktok.com/tag/cryptocoin?refer=embed">#Cryptocoin</a> <a title="tothemoon" target="_blank" href="https://www.tiktok.com/tag/tothemoon?refer=embed">#Tothemoon</a> <a title="solana" target="_blank" href="https://www.tiktok.com/tag/solana?refer=embed">#solana</a><a title="money" target="_blank" href="https://www.tiktok.com/tag/money?refer=embed">#money</a> <a target="_blank" title="♬ Mr. Robot Main Theme - Mount-Royal Orchestra" href="https://www.tiktok.com/music/Mr-Robot-Main-Theme-7071277168495429634?refer=embed">♬ Mr. Robot Main Theme - Mount-Royal Orchestra</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+            <section></section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+    </div>
+
+    <!-- Twitter beágyazási példa -->
+    <div class="embed-item">
+        <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">Just setting up my Twitter. #myfirstTweet</p>
+            — Jack (@jack) 
+            <a href="https://twitter.com/Fsocietycoin_/status/1867520431042826513">March 21, 2006</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+
+<!------------------------------------------------------->
+<!--How to buy leírása-->
+
+<section>
+    <div class="steps-container">
+        <!-- 1. lépés -->
+        <div class="step">
+            <h2>Step 1</h2>
+            <p><strong>Mobile Users:</strong> Download the Phantom app for free. <br>
+                <strong>Desktop Users:</strong> Download the Phantom chrome extension</p>
+            <a href="https://phantom.app" target="_blank">
+                <img src="images/phantom.png" alt="Phantom" class="icon phantom-icon">
+            </a>
+        </div>
+    
+        <!-- 2. lépés -->
+        <div class="step">
+            <h2>Step 2</h2>
+            <p>Fund your wallet with Solana, you can buy Solana from an exchange or cross chain swap and send it to your wallet.</p>
+            <a href="https://solana.com" target="_blank">
+                <img src="images/Solana.png" alt="Solana" class="icon solana-icon">
+            </a>
+        </div>
+    
+        <!-- 3. lépés -->
+        <div class="step">
+            <h2>Step 3</h2>
+            <p>Go to Raydium or Jupiter and swap your Solana for <strong>F$OCIETY</strong></p>
+            <div class="logos">
+                <a href="https://raydium.io" target="_blank">
+                    <img src="images/Raydium.png" alt="Raydium" class="raydium-icon">
+                </a>
+                <a href="https://jup.ag" target="_blank">
+                    <img src="images/jupiter.png" alt="Jupiter" class="jupiter-icon">
+                </a>
+            </div>
+        </div>
+    </div>        
+</section>
+    <!--Szürke csík social media-->
+
+      <!-- Footer (szürke csík) -->
+  <div class="footer">
+    <a href="https://phantom.app" target="_blank"><span>Phantom</span></a>
+    <a href="https://dexscreener.com" target="_blank"><span>Dexscreener</span></a>
+    <a href="https://www.tiktok.com/@fsocietycoin?is_from_webapp=1&sender_device=pc" target="_blank"><span>TikTok</span></a>
+    <a href="https://x.com/Fsocietycoin_" target="_blank"><span>Twitter</span></a>
+    <a href="https://https://t.me/+ZoMekRUJtBtiOWE0" target="_blank"><span>Telegram</span></a>
+    <a href="https://pumpfun.com" target="_blank"><span>Pumpfun</span></a>
+  </div>
+
+    <!-- Tartalom -->
+    <div class="content">
+        <h1>LAUNCH</h1>
+        <p>00:00:00</p>
+        <h2 class="subtitle">F$OCIETY</h2>
+    </div>
+</body>
+</html>
