@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media GIF</title>
+    <style>
+        /* Reset alapstílusok */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Tartalom középre igazítása vízszintesen */
+            align-items: center;    /* Tartalom középre igazítása függőlegesen */
+            position: relative;     /* Szükséges a relatív pozíció a GIF-hez */
+        }
+
+        /* GIF-container stílusa */
+        .gif-container {
+            position: absolute; /* Abszolút pozíció a body-hoz képest */
+            top: 0px;          /* Kis távolság a tetejétől */
+            right: 30px;        /* Kis távolság a jobb oldaltól */
+            width: 60px;       /* A GIF mérete */
+            cursor: pointer;
+        }
+
+        /* GIF megjelenítése */
+        .gif {
+            width: 100%;
+            border-radius: 10px; /* Enyhe kerekítés */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Szöveg középre helyezése */
+        .content {
+            color: #ffffff;
+            text-align: center;
+            font-size: 2em;
+            z-index: 1; /* A szöveg mindig a GIF mögött maradjon */
+}
+
+        .social-links {
+            position: absolute;
+            top: 75px; /* Jobb felső sarok */
+            left: -100px;
+            display: none; /* Alapértelmezés szerint rejtett */
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border-radius: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+        .social-icon img {
+            width: 70%; /* Ikon mérete */
+            height: 70%;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .gif-container:hover .social-links {
+            display: flex; /* Mutassa az ikonokat, ha fölé viszed az egeret */
+        }
+        span {
+    font-size: 14px;
+    color: white; /* Szöveg színe */
+    font-weight: 500;
+}
+
+        
+    </style>
+</body>
+</head>
+<body>
+    <div class="gif-container">
+        <!-- Social Media cím -->
+        <div class="social-title">Social Media</div>
+        <!-- Cseréld ki az alábbi linket a saját GIF-edre -->
+        <img src="images/robot_icon.gif" alt="Clickable GIF" class="gif">
+        <div class="social-links">
+            <!-- Social media linkek -->
+            <div class="social-item">
+                <a href="https://x.com/Fsocietycoin_" target="_blank" class="social-icon">
+                    <img src="images/X.png" alt="X Icon">
+                </a>
+                <span>Twitter</span>
+            </div>
+            <div class="social-item">
+                <a href="https://t.me/+ZoMekRUJtBtiOWE0" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon"> 
+                </a>
+                <span>Telegram</span>
+            </div>
+            <div class="social-item">
+                <a href="https://dexscreener.com" target="_blank" class="social-icon">
+                    <img src="images/Dexscreener.png" alt="Dexscreener Icon"> 
+                </a>
+                <span>Dexscreener</span>
+            </div>
+            <div class="social-item">
+                <a href="https://www.tiktok.com/@fsocietycoin?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon">
+                    <img src="images/tiktok_icon.png" alt="TikTok Icon"> 
+                </a>
+                <span>TikTok</span>
+            </div>
+            <div class="social-item">
+                <a href="https://pumpfun.com" target="_blank" class="social-icon">
+                    <img src="images/PumpFun-ezgif,com-resize_processed.png" alt="Pumpfun Icon"> 
+                </a>
+                <span>PumpFun</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

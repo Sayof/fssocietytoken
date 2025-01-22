@@ -1,0 +1,18 @@
+/* Ez egy alap CSS fájl */
+body {
+    background-color: #f0f0f0; /* Világosszürke háttérszín */
+    font-family: Arial, sans-serif; /* Betűtípus beállítása */
+    margin: 0; /* Margin eltávolítása */
+    padding: 0; /* Padding eltávolítása */
+}
+
+h1 {
+    color: #333; /* Sötétszürke szöveg */
+    text-align: center; /* Középre igazítás */
+}
+
+p {
+    font-size: 16px; /* Betűméret */
+    line-height: 1.5; /* Sorköz */
+    color: #555; /* Halvány szürke szöveg */
+}
